@@ -1,4 +1,5 @@
-ARG version=22.04
+ARG version=20.04
+# 22.04 removes Libssl1.1 in favour of Libssl3, but Ruby 2.6.0 requires 1.1
 # shellcheck disable=SC2154
 FROM ubuntu:"${version}"
 ARG DEBIAN_FRONTEND=noninteractive
@@ -27,8 +28,7 @@ RUN apt-get update \
     sudo \
     uuid-runtime \
     tzdata \
-    ruby-full \
-    rubygems \
+    libssl1.1 \
   && apt remove --purge -y software-properties-common \
   && apt autoremove --purge -y \
   && rm -rf /var/lib/apt/lists/* \
@@ -37,10 +37,7 @@ RUN apt-get update \
   && echo 'linuxbrew ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers \
   && su - linuxbrew -c 'mkdir ~/.linuxbrew'
 
-RUN gem install bundler -v '1.17.3'
-
 USER linuxbrew
-# COPY --chown=linuxbrew:linuxbrew . /home/linuxbrew/.linuxbrew/Homebrew
 RUN git clone --depth 1 https://github.com/Homebrew/brew /home/linuxbrew/.linuxbrew/Homebrew
 ENV PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:${PATH}"
 WORKDIR /home/linuxbrew
@@ -64,3 +61,9 @@ RUN mkdir -p \
   && { git -C .linuxbrew/Homebrew config --unset gc.auto; true; } \
   && { git -C .linuxbrew/Homebrew config --unset homebrew.devcmdrun; true; } \
   && rm -rf .cache
+
+RUN brew install rbenv ruby-build
+RUN eval "$(rbenv init - bash)"
+RUN rbenv install 2.6.0
+RUN rbenv global 2.6.0
+RUN gem install bundler -v '1.17.3'
