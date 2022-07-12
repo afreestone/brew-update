@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/afreestone/brew-update/compare/v1.1.0...v1.2.0) (2022-07-12)
+
+
+### Features
+
+* Installing Ruby 2.6.0 from rbenv works. ([417a43d](https://github.com/afreestone/brew-update/commit/417a43d3277a8eef45ccb4cd2c63645d06466d48))
+
 ## [1.1.0](https://github.com/afreestone/brew-update/compare/v1.0.1...v1.1.0) (2022-07-12)
 
 
