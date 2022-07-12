@@ -66,4 +66,3 @@ RUN brew install rbenv ruby-build
 RUN eval "$(rbenv init - bash)"
 RUN rbenv install 2.6.0
 RUN rbenv global 2.6.0
-RUN gem install bundler -v '1.17.3'
