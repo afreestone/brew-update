@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/afreestone/brew-update/compare/v1.2.0...v1.3.0) (2022-07-12)
+
+
+### Features
+
+* remove gem install bundler 1.17.3 ([0cf4353](https://github.com/afreestone/brew-update/commit/0cf4353bbec83d0efcaaef4727638e2ade6cb7e3))
+
 ## [1.2.0](https://github.com/afreestone/brew-update/compare/v1.1.0...v1.2.0) (2022-07-12)
 
 
