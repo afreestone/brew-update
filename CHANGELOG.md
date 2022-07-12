@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/afreestone/brew-update/compare/v1.0.1...v1.1.0) (2022-07-12)
+
+
+### Features
+
+* Install required bundler version. ([0bb56b6](https://github.com/afreestone/brew-update/commit/0bb56b65f9f28c48f205ae635d05912eeec96442))
+
 ## [1.0.1](https://github.com/afreestone/brew-update/compare/v1.0.0...v1.0.1) (2022-07-12)
 
 
